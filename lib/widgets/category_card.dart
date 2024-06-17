@@ -8,9 +8,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
+      margin: EdgeInsets.only(right: 10),
+      height: 100,
       width: 170,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
         image: DecorationImage(
           image: AssetImage(category.image),
           fit: BoxFit.fill,

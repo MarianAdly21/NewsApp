@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news__app/widgets/category_list.dart';
+import 'package:news__app/widgets/news_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           CategoryList(),
+          NewsTile(),
         ],
       ),
     );

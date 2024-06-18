@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news__app/widgets/category_list.dart';
+import 'package:news__app/widgets/news_list.dart';
 import 'package:news__app/widgets/news_tile.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,12 +32,21 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          CategoryList(),
-          NewsTile(),
-        ],
-      ),
+      body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: CategoryList(),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 30,
+                ),
+              ),
+              NewsList(),
+            ],
+          )),
     );
   }
 }

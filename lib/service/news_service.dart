@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:news__app/models/artical.dart';
 
 class NewsService {
-  final Dio dio;
+  final Dio dio=Dio();
 
-  NewsService(this.dio);
+  //NewsService(this.dio);
 
   Future<List<ArticalMobel>> getGeneralNews() async {
     try {
       Response response = await dio.get(
-          'https://newsapi.org/v2/top-headlines?country=eg&apiKey=12e9a0682ecf4e5d94aa2a7d4719e0cb&category=general');
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=12e9a0682ecf4e5d94aa2a7d4719e0cb&category=general');
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> articles = jsonData['articles'];
       List<ArticalMobel> articleList = [];

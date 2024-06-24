@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news__app/models/artical.dart';
 
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  const NewsTile({super.key, required this.articalMobel});
+  final ArticalMobel articalMobel;
 
   @override
   Widget build(BuildContext context) {
@@ -9,16 +11,25 @@ class NewsTile extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image(
-            image: AssetImage("assets/business.webp"),
-          ),
+          borderRadius: BorderRadius.circular(6),
+          child: articalMobel.image != null
+              ? Image.network(
+                  articalMobel.image!,
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                )
+              : Image.asset('assets/technology.jpeg',
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
         ),
         SizedBox(
           height: 10,
         ),
         Text(
-          "wertyuiopppppppppppppppppppppppppppppphhhhhhhhhhhhhhhhhhhhhhhhjjjjjjj",
+          articalMobel.title        ,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -30,7 +41,7 @@ class NewsTile extends StatelessWidget {
           height: 10,
         ),
         Text(
-          "wertyuiopppppppppppppppppppppppppppppphhh",
+          articalMobel.subTitle??"",
           maxLines: 2,
           style: TextStyle(
             color: Colors.grey,

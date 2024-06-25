@@ -6,7 +6,7 @@ import 'package:news__app/views/home_page.dart';
 
 void main() {
   NewsService().getGeneralNews();
-  runApp(NewsApp());
+  runApp(const NewsApp());
 }
 
 final dio = Dio();
@@ -16,7 +16,7 @@ class NewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

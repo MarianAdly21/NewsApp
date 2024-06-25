@@ -25,25 +25,25 @@ class NewsTile extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
         ),
-        SizedBox(
+       const SizedBox(
           height: 10,
         ),
         Text(
           articalMobel.title        ,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
+          style:const  TextStyle(
             color: Colors.black,
             fontSize: 25,
           ),
         ),
-        SizedBox(
+       const SizedBox(
           height: 10,
         ),
         Text(
           articalMobel.subTitle??"",
           maxLines: 2,
-          style: TextStyle(
+          style:const TextStyle(
             color: Colors.grey,
             fontSize: 25,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news__app/models/artical.dart';
+//import 'package:news__app/models/artical.dart';
 import 'package:news__app/service/news_service.dart';
 import 'package:news__app/widgets/news_list.dart';
 
@@ -11,25 +12,35 @@ class NewsListBuilder extends StatefulWidget {
 }
 
 class _NewsListBuilderState extends State<NewsListBuilder> {
-  bool isDataLoading = true;
-  List<ArticalMobel> articles = [];
-
+  var future;
   @override
   void initState() {
+    future=NewsService().getGeneralNews();
     super.initState();
-    getNews();
-  }
-
-  Future<void> getNews() async {
-    articles = await NewsService().getGeneralNews();
-    isDataLoading = false;
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return isDataLoading
-        ?const SliverToBoxAdapter(child: Center(child: CircularProgressIndicator()))
-        :  NewsList(articles: articles,);
+    return FutureBuilder<List<ArticalMobel>>(
+        future: future,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return NewsList(
+              articles: snapshot.data!,
+            );
+          } else if (snapshot.hasError) {
+            return const SliverToBoxAdapter(
+              child: Center(
+                child: Text("oops there is an error, try later "),
+              ),
+            );
+          } else {
+            return const SliverToBoxAdapter(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        });
   }
 }

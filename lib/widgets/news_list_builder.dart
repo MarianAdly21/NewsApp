@@ -15,7 +15,7 @@ class _NewsListBuilderState extends State<NewsListBuilder> {
   var future;
   @override
   void initState() {
-    future=NewsService().getGeneralNews();
+    future=NewsService().getNews(category: 'general');
     super.initState();
   }
 

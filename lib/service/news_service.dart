@@ -2,9 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:news__app/models/artical.dart';
 
 class NewsService {
-  final Dio dio=Dio();
-
-  
+  final Dio dio = Dio();
 
   Future<List<ArticalMobel>> getNews({required String category}) async {
     try {
@@ -15,11 +13,7 @@ class NewsService {
       List<ArticalMobel> articleList = [];
 
       for (var article in articles) {
-        ArticalMobel articalMobel = ArticalMobel(
-          title: article['title'],
-          subTitle: article['description'],
-          image: article['urlToImage'],
-        );
+        ArticalMobel articalMobel = ArticalMobel.fromJson(article);
         articleList.add(articalMobel);
       }
       return articleList;

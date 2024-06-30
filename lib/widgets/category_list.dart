@@ -6,8 +6,8 @@ class CategoryList extends StatelessWidget {
   const CategoryList({super.key});
   final List<CateoryModel> categores = const [
     CateoryModel(image: 'assets/business.webp', name: 'Business'),
-    CateoryModel(image: 'assets/entertaiment.avif', name: 'Entertaiment'),
-    CateoryModel(image: 'assets/health.avif', name: 'Healthy'),
+    CateoryModel(image: 'assets/entertaiment.avif', name: 'Entertainment'),
+    CateoryModel(image: 'assets/health.avif', name: 'Health'),
     CateoryModel(image: 'assets/science.avif', name: 'Science'),
     CateoryModel(image: 'assets/technology.jpeg', name: 'Technology'),
   ];

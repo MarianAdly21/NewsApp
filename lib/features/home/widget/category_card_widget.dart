@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news__app/models/category.dart';
 import 'package:news__app/views/category_view.dart';
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({super.key, required this.category});
+class CategoryCardWidget extends StatelessWidget {
+  const CategoryCardWidget({super.key, required this.category});
   final CateoryModel category;
 
   @override
@@ -13,7 +13,9 @@ class CategoryCard extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return CategoryView(category:category.name ,);
+              return CategoryView(
+                category: category.name,
+              );
             },
           ),
         );

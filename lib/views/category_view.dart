@@ -9,7 +9,9 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: CustomScrollView(
-      slivers: [NewsListBuilder(category:category ,),],
+      slivers: [
+       // NewsListBuilder(category:category ,),
+        ]
     ));
   }
 }

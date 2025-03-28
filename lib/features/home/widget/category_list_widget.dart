@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news__app/models/category.dart';
-import 'package:news__app/widgets/category_card.dart';
+import 'package:news__app/features/home/widget/category_card_widget.dart';
 
-class CategoryList extends StatelessWidget {
-  const CategoryList({super.key});
+class CategoryListWidget extends StatelessWidget {
+  const CategoryListWidget({super.key});
   final List<CateoryModel> categores = const [
     CateoryModel(image: 'assets/business.webp', name: 'Business'),
     CateoryModel(image: 'assets/entertaiment.avif', name: 'Entertainment'),
@@ -20,7 +20,7 @@ class CategoryList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: categores.length,
           itemBuilder: (context, index) {
-            return CategoryCard(
+            return CategoryCardWidget(
               category: categores[index],
             );
           }),
